@@ -4,4 +4,4 @@ cp /etc/nixos/* etc
 
 cp /home/emil/.bashrc home
 
-rm hardware-configuration.nix
+rm etc/hardware-configuration.nix
