@@ -104,10 +104,12 @@ rec {
   in [
     _7zz
     archivemount
+    btfs
     curlFull
     emacs
     ffmpeg
     firefox
+    fuse-7z-ng
     gcc
     git
     gnomeExtensions.app-grid-tweaks
