@@ -125,6 +125,7 @@ rec {
     nix-index
     openssl
     pdftk
+    qbittorrent
     rclone
     veracrypt
     virt-manager
