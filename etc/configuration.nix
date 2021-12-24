@@ -1,6 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
+
+# Switch to nixos unstable:
+# nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+
 { config, pkgs, ... }:
 rec {
   imports =
@@ -59,7 +63,9 @@ rec {
     gnome-connections
     gnome-tour
   ];
-
+  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.nvidiaWayland = false;
+  
   # Configure keymap in X11
   services.xserver.layout = "pl";
   # services.xserver.xkbOptions = "eurosign:e";
@@ -144,12 +150,12 @@ rec {
   nixpkgs.config.allowUnfree = true;
   
   # Nix flakes
-  #  nix = {
-  #    package = pkgs.nixFlakes;
-  #    extraOptions = ''
-  #      experimental-features = nix-command flakes
-  #    '';
-  #  };
+   nix = {
+     package = pkgs.nixFlakes;
+     extraOptions = ''
+       experimental-features = nix-command flakes
+     '';
+   };
   
   # VMs
   # - Virtual Box
