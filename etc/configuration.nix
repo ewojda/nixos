@@ -5,6 +5,9 @@
 # Switch to nixos unstable:
 # nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 
+let
+  current-de = import ./de.nix;
+in
 { config, pkgs, ... }:
 rec {
   imports =
@@ -52,7 +55,9 @@ rec {
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.nvidiaWayland = false;
+  gservices.xserver.desktopManager.gnome.enable = (current-de == "gnome");
   environment.gnome.excludePackages = with pkgs; let g = gnome; in [
     g.epiphany
     g.cheese
@@ -63,8 +68,11 @@ rec {
     gnome-connections
     gnome-tour
   ];
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.displayManager.gdm.nvidiaWayland = false;
+
+  # XFCE
+  services.xserver.desktopManager.xfce.enable = (current-de == "xfce");
+  networking.networkmanager.enable = true;
+  programs.nm-applet.enable = true;
   
   # Configure keymap in X11
   services.xserver.layout = "pl";
@@ -98,7 +106,7 @@ rec {
   # Users
   users.users.emil = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
   # Packages

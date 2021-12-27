@@ -11,3 +11,8 @@ function edit-nixcfg() {
 function fhsenv() {
 	nix-shell --expr "with import <nixpkgs> {}; (buildFHSUserEnv { name = \"fhs-env\"; targetPkgs = pkgs: [ zlib xorg.libXxf86vm libglvnd openssl xorg.libX11 xorg.libXext xorg.libXrandr libGLU openal $@];	}).env"	
 }
+
+function rebuild-with() {
+	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
+	sudo nixos-rebuild switch -p $1
+}
