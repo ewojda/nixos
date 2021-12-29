@@ -53,11 +53,17 @@ rec {
   
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+  # Display manager
+  #  GDM
+  services.xserver.displayManager.gdm.enable = (current-de != "startx" && current-de != "pantheon");
   services.xserver.displayManager.gdm.wayland = false;
   services.xserver.displayManager.gdm.nvidiaWayland = false;
-  gservices.xserver.desktopManager.gnome.enable = (current-de == "gnome");
+  #  startx
+  services.xserver.displayManager.startx.enable = (current-de == "startx");
+  
+  # Desktop Environment.
+  #  Gnome
+  services.xserver.desktopManager.gnome.enable = (current-de == "gnome");
   environment.gnome.excludePackages = with pkgs; let g = gnome; in [
     g.epiphany
     g.cheese
@@ -69,15 +75,28 @@ rec {
     gnome-tour
   ];
 
-  # XFCE
+  #  XFCE
   services.xserver.desktopManager.xfce.enable = (current-de == "xfce");
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
-  
+
+  #  Fluxbox
+  services.xserver.windowManager.fluxbox.enable = (current-de == "fluxbox");
+
+  #  Pantheon
+  services.xserver.desktopManager.pantheon.enable = (current-de == "pantheon");
+  environment.pantheon.excludePackages = with pkgs.pantheon; [
+    elementary-camera
+    elementary-code
+    elementary-tasks
+    epiphany
+  ];
+  programs.pantheon-tweaks.enable = (current-de == "pantheon");
+
   # Configure keymap in X11
   services.xserver.layout = "pl";
   # services.xserver.xkbOptions = "eurosign:e";
-  
+
   # Remap mouse side buttons to scroll and disable acceleration
   services.xserver.config = ''
     Section "InputClass"
@@ -115,19 +134,22 @@ rec {
   environment.systemPackages = with pkgs; let
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
+    custom-emacs = emacs.override { withGTK2 = true; withGTK3 = false; };
   in [
     _7zz
     archivemount
     btfs
     curlFull
-    emacs
+    custom-emacs
     ffmpeg
+    gnome.file-roller
     firefox
     fuse-7z-ng
     gcc
     git
     gnomeExtensions.app-grid-tweaks
     gnome.gnome-tweaks
+    gnome.dconf-editor
     go
     gopls
     haxe
