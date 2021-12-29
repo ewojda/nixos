@@ -8,6 +8,7 @@
 let
   current-de = import ./de.nix;
 in
+assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "pantheon" ]);
 { config, pkgs, ... }:
 rec {
   imports =
