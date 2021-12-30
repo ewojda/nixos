@@ -136,6 +136,7 @@ rec {
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
     custom-emacs = emacs.override { withGTK2 = true; withGTK3 = false; };
+    hashlink = import ./hashlink.nix { inherit pkgs; };
   in [
     _7zz
     archivemount
@@ -157,6 +158,7 @@ rec {
     go
     gopls
     haxe
+    hashlink
     httpdirfs
     hugo
     inkscape
