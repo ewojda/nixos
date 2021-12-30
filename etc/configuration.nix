@@ -148,6 +148,7 @@ rec {
     fuse-7z-ng
     gcc
     git
+    gnome.dconf-editor
     gnomeExtensions.app-grid-tweaks
     gnome.gnome-tweaks
     gnome.dconf-editor
