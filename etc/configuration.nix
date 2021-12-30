@@ -151,6 +151,7 @@ rec {
     gnome.dconf-editor
     gnomeExtensions.app-grid-tweaks
     gnome.file-roller
+    gnome.gnome-system-monitor
     gnome.gnome-tweaks
     gnome.dconf-editor
     go
