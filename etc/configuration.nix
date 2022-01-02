@@ -144,14 +144,12 @@ rec {
     curlFull
     custom-emacs
     ffmpeg
-    gnome.file-roller
     firefox
     fuse-7z-ng
     gcc
     git
     gnome.dconf-editor
     gnomeExtensions.app-grid-tweaks
-    gnome.file-roller
     gnome.gnome-system-monitor
     gnome.gnome-tweaks
     gnome.dconf-editor
@@ -182,7 +180,9 @@ rec {
     yt-dlp
     
     airshipper
-  ];
+  ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
+    gnome.file-roller
+  ] else []);
   
   nixpkgs.config.allowUnfree = true;
   
