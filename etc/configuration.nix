@@ -147,6 +147,7 @@ rec {
     git
     gnome.dconf-editor
     gnomeExtensions.app-grid-tweaks
+    gnome.gnome-disk-utility
     gnome.gnome-system-monitor
     gnome.gnome-tweaks
     gnome.dconf-editor
