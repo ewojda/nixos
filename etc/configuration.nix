@@ -39,10 +39,6 @@ rec {
   networking.interfaces.enp2s0.useDHCP = true;
   networking.interfaces.wlp0s19f2u6.useDHCP = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
@@ -156,13 +152,12 @@ rec {
     gnome.dconf-editor
     go
     gopls
-    haxe
     hashlink
+    haxe
     httpdirfs
     hugo
     inkscape
     libreoffice
-    multimc
     nix-index
     openjdk
     openssl
@@ -180,8 +175,10 @@ rec {
     winetricks
     xorg.xmodmap
     yt-dlp
-    
+
+    multimc
     airshipper
+
     netsurf-browser
   ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
     gnome.file-roller
@@ -207,33 +204,6 @@ rec {
   programs.dconf.enable = true;
   users.extraGroups.libvirtd.members = [ "emil" ];
 
-  # Patch gtk3 to add thumbnails to file picker ( doesn't work )  
-  #  nixpkgs.overlays = [
-  #    (newpkgs: oldpkgs: {
-  #      gtk3 = oldpkgs.gtk3.overrideAttrs (old: {
-  #        patches = (old.patches or []) ++ [ 
-  #          (oldpkgs.fetchpatch {
-  #            url = "https://gist.githubusercontent.com/Dudemanguy/c172394e30e1e7d0f477ad15c719bc71/raw/8f2e9fb36d736b600030a2db24a26304654f5e17/gtk3-filechooser-icon-view.patch";
-  #            sha256 = "1sifny672li14jl6kj8xx2jmbyyffv0jwhr4mz5nkds9hvq305vs";
-  #          })
-  #        ];
-  #      });
-  #    })
-  #  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8080 ];
   # networking.firewall.allowedUDPPorts = [ ];
@@ -247,6 +217,5 @@ rec {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
-
 }
 
