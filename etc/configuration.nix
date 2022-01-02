@@ -166,6 +166,7 @@ rec {
     multimc
     nix-index
     openssl
+    patchelf
     pdftk
     qbittorrent
     rclone
