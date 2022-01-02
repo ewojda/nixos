@@ -182,6 +182,7 @@ rec {
     yt-dlp
     
     airshipper
+    netsurf-browser
   ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
     gnome.file-roller
   ] else []);
