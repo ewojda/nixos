@@ -164,6 +164,7 @@ rec {
     libreoffice
     multimc
     nix-index
+    openjdk
     openssl
     patchelf
     pdftk
