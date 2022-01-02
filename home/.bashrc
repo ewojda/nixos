@@ -24,3 +24,21 @@ function fhsenv() {
 	}).env"
 }
 
+function autopatch() {
+	echo "\
+	{ pkgs ? import <nixpkgs> {} }:\
+	pkgs.stdenv.mkDerivation {\
+		name = \"autoPatchedBinary\";\
+		src = ./.;\
+		nativeBuildInputs = [\
+			pkgs.autoPatchelfHook\
+		];\
+		buildInputs = [\
+			pkgs.patchelf\
+		];\
+		buildPhase = '' $2 '';\
+		installPhase = '' mkdir \$out && cp \"$1\" \$out '';\
+	}" > temp.nix &&
+	nix-build temp.nix &&
+	rm temp.nix
+}
