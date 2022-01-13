@@ -44,3 +44,11 @@ function autopatch() {
 	nix-build temp.nix &&
 	rm temp.nix
 }
+
+function musics() {
+	cd /home/emil/Documents/Go/musics-main/
+	/home/emil/Documents/Go/musics-main/main\
+	 -dir /home/emil/Music\
+	 $@
+}
+#	 -dir /run/media/emil/D26279076278F219/Users/Emil/Music\
