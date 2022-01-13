@@ -132,15 +132,15 @@ rec {
   environment.systemPackages = with pkgs; let
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
-    custom-emacs = emacs.override { withGTK2 = true; withGTK3 = false; };
+    emacsWithGTK2 = emacs.override { withGTK2 = true; withGTK3 = false; };
     hashlink = import ./hashlink.nix { inherit pkgs; };
   in [
     _7zz
     archivemount
     btfs
     curlFull
-    custom-emacs
     ffmpeg
+    emacsWithGTK2
     firefox
     fuse-7z-ng
     gcc
