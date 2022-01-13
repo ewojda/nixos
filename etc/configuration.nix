@@ -158,6 +158,7 @@ rec {
     haxe
     httpdirfs
     hugo
+    imagemagick
     inkscape
     libreoffice
     nix-index
