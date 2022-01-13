@@ -1,6 +1,5 @@
 export EDITOR="emacs"
 export PATH="$PATH:/home/emil/go/bin"
-export WINE=wine64
 
 alias 7z=7zz
 
