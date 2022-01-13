@@ -134,6 +134,7 @@ rec {
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
     emacsWithGTK2 = emacs.override { withGTK2 = true; withGTK3 = false; };
     hashlink = import ./hashlink.nix { inherit pkgs; };
+    airshipperFixedIcon = import ./airshipper.nix { inherit pkgs; };
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
   in [
     _7zz
@@ -178,7 +179,7 @@ rec {
     yt-dlp
 
     multimc
-    airshipper
+    airshipperFixedIcon
 
     netsurf-browser
   ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
