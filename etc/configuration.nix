@@ -184,6 +184,10 @@ rec {
     netsurf-browser
   ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
     gnome.file-roller
+  ] else []) ++ (if current-de == "pantheon" then [
+    gnome.gnome-characters
+    gnome.gnome-maps
+    gnome.gnome-weather
   ] else []);
   
   nixpkgs.config.allowUnfree = true;
