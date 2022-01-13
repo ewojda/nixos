@@ -9,7 +9,7 @@ function edit-nixcfg() {
 
 function rebuild-with() {
 	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
-	sudo nixos-rebuild switch -p $1
+	sudo nixos-rebuild switch -p $1 $2
 }
 
 function fhsenv() {
