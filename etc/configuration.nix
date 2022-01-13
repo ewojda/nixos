@@ -166,6 +166,7 @@ rec {
     openssl
     patchelf
     pdftk
+    p7zip
     qbittorrent
     rclone
     veracrypt
