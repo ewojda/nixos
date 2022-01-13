@@ -134,13 +134,14 @@ rec {
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
     emacsWithGTK2 = emacs.override { withGTK2 = true; withGTK3 = false; };
     hashlink = import ./hashlink.nix { inherit pkgs; };
+    ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
   in [
     _7zz
     archivemount
     btfs
     curlFull
-    ffmpeg
     emacsWithGTK2
+    ffmpegWithFFplay
     firefox
     fuse-7z-ng
     gcc
