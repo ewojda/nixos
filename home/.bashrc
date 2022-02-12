@@ -88,3 +88,7 @@ function offline2() {
    	bwrap --bind / / --dev /dev --unshare-net -- $@
 }
 
+function eman() {
+	emacs --eval "(progn (man \"$1\") (delete-window))"
+}
+
