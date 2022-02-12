@@ -67,3 +67,13 @@ function musics() {
 	 $@
 }
 #	 -dir /run/media/emil/D26279076278F219/Users/Emil/Music\
+
+function nix-shell-stable() {
+	nix-shell -v --expr "
+	let
+		pkgs = import (\"\" + builtins.fetchTarball(\"https://github.com/NixOS/nixpkgs/archive/nixos-21.11.tar.gz\")) {};
+	in
+	(pkgs.mkShell {
+	  buildInputs = with pkgs; [ $@ ];
+	})"
+}
