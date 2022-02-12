@@ -209,7 +209,24 @@ rec {
     gnome.gnome-maps
     gnome.gnome-weather
   ] else []);
-  
+
+  systemd.services.musics = {
+    enable = true;
+    description = "Music server";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart =
+        "/home/emil/Documents/Go/musics-main/main" +
+        " -dir /home/emil/Music" +
+        " -db /home/emil/Documents/Go/musics-main/audio.sqlite" +
+        " -templates '/home/emil/Documents/Go/musics-main/templates/*'";
+    };
+    wantedBy = [ "network.target" ];
+  };
+
+  # services.tor.enable = true;
+  # services.tor.client.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   
   # Nix flakes
