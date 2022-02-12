@@ -92,3 +92,8 @@ function eman() {
 	emacs --eval "(progn (man \"$1\") (delete-window))"
 }
 
+export W32P=/home/emil/.local/share/wineprefixes/32/
+
+function wine32() {
+	WINEPREFIX=$W32P wine $@
+}
