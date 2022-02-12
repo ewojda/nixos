@@ -115,7 +115,7 @@ rec {
       	Option "AccelSpeed" "-1"
     EndSection
   '';
-  
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -134,7 +134,7 @@ rec {
 
   # Packages
   programs.steam.enable = true;
-  
+
   environment.systemPackages = with pkgs; let
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
@@ -253,20 +253,22 @@ rec {
        experimental-features = nix-command flakes
      '';
    };
-  
+
   # VMs
   # - Virtual Box
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "emil" ];
-  
+
   # - KVM
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
   users.extraGroups.libvirtd.members = [ "emil" ];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8080 ];
-  # networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [
+    8080
+  ];
+  networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
