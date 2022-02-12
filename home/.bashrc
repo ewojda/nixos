@@ -83,3 +83,8 @@ function offline() {
 	sudo unshare -n sudo -u emil $@
 }
 
+# https://unix.stackexchange.com/questions/96358/command-to-run-a-child-process-offline-no-external-network-on-linux
+function offline2() {
+   	bwrap --bind / / --dev /dev --unshare-net -- $@
+}
+
