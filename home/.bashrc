@@ -64,6 +64,7 @@ function musics() {
 	cd /home/emil/Documents/Go/musics-main/
 	/home/emil/Documents/Go/musics-main/main\
 	 -dir /home/emil/Music\
+	 -db /home/emil/Documents/Go/musics-main/audio.sqlite
 	 $@
 }
 #	 -dir /run/media/emil/D26279076278F219/Users/Emil/Music\
