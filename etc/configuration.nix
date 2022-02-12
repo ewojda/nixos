@@ -7,8 +7,9 @@
 
 let
   current-de = import ./de.nix;
+  use-lightdm = (current-de == "fluxbox" || current-de == "icewm" || current-de == "pantheon" || current-de == "xfce");
 in
-assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "pantheon" ]);
+assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "icewm" "pantheon" ]);
 { config, pkgs, ... }:
 rec {
   imports =
@@ -48,17 +49,19 @@ rec {
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  
+
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Display manager
+  #  LightDM
+  services.xserver.displayManager.lightdm.enable = use-lightdm;
   #  GDM
-  services.xserver.displayManager.gdm.enable = (current-de != "startx" && current-de != "pantheon");
+  services.xserver.displayManager.gdm.enable = (current-de != "startx" && !use-lightdm);
   services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.displayManager.gdm.nvidiaWayland = false;
+  # services.xserver.displayManager.gdm.nvidiaWayland = false;
   #  startx
   services.xserver.displayManager.startx.enable = (current-de == "startx");
-  
+
   # Desktop Environment.
   #  Gnome
   services.xserver.desktopManager.gnome.enable = (current-de == "gnome");
@@ -80,6 +83,9 @@ rec {
 
   #  Fluxbox
   services.xserver.windowManager.fluxbox.enable = (current-de == "fluxbox");
+
+  #  IceWM
+  services.xserver.windowManager.icewm.enable = (current-de == "icewm");
 
   #  Pantheon
   services.xserver.desktopManager.pantheon.enable = (current-de == "pantheon");
