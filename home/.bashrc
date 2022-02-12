@@ -78,3 +78,8 @@ function nix-shell-stable() {
 	  buildInputs = with pkgs; [ $@ ];
 	})"
 }
+
+function offline() {
+	sudo unshare -n sudo -u emil $@
+}
+
