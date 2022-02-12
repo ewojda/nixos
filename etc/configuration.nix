@@ -138,37 +138,52 @@ rec {
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
   in [
     _7zz
-    archivemount
+#    archivemount
     btfs
+    cdrkit
     curlFull
-    emacsWithGTK2
+    dino
+    emacs
     ffmpegWithFFplay
     firefox
     fuse-7z-ng
     gcc
     git
     gnome.dconf-editor
+    gnome.dconf-editor
     gnome.gnome-disk-utility
     gnome.gnome-system-monitor
     gnome.gnome-tweaks
-    gnome.dconf-editor
-    go
+    go_1_17
     gopls
     hashlink
     haxe
     httpdirfs
     hugo
     imagemagick
+    #(import ./tageditor-no-gui.nix { inherit pkgs; })
     inkscape
+    jami-client-qt
+    jami-daemon
+    #latest.firefox-nightly-bin
     libreoffice
+    luajit_2_1
+    mpv
     nix-index
-    openjdk
+    nomacs
+    openjdk11
     openssl
+    p7zip
     patchelf
     pdftk
-    p7zip
+    pkg-config
     qbittorrent
     rclone
+    session-desktop-appimage
+    sumneko-lua-language-server
+    tageditor
+#    ungoogled-chromium
+    unzip
     veracrypt
     virt-manager
     vlc
@@ -179,9 +194,12 @@ rec {
     winetricks
     xorg.xmodmap
     yt-dlp
+    zlib
 
-    multimc
-    airshipperFixedIcon
+#    minetest
+    polymc
+#    airshipperFixedIcon
+#    (import ./xenia.nix { inherit pkgs; })
 
     netsurf-browser
   ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
