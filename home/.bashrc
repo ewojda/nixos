@@ -7,9 +7,24 @@ function edit-nixcfg() {
 	sudo emacs /etc/nixos/configuration.nix "$@"
 }
 
+function init-rebuild-with() {
+	set -o xtrace
+    mkdir ~/temp1738715890715
+	cd ~/temp1738715890715
+	curl -L -o nixpkgs-myrev.tar.gz 'https://github.com/NixOS/nixpkgs/archive/efeefb2af1469a5d1f0ae7ca8f0dfd9bb87d5cfb.tar.gz'
+	7z x nixpkgs-myrev.tar.gz
+	7z x nixpkgs-myrev.tar
+	rm -rf nixpkgs-myrev.tar nixpkgs-myrev.tar.gz
+	mkdir ~/nixpkgs-myrev
+	mv -T nixpkgs-* ~/nixpkgs-myrev
+	rm -rf ~/temp1738715890715/
+	set +o xtrace
+}
+
 function rebuild-with() {
 	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
-	sudo nixos-rebuild switch -p $1 $2
+	NP_PIN="-I nixpkgs=/home/emil/nixpkgs-myrev/"
+	sudo nixos-rebuild switch $NP_PIN -p $1 $2
 }
 
 function fhsenv() {
