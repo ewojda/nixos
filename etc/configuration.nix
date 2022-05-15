@@ -60,8 +60,9 @@ rec {
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp2s0.useDHCP = true;
-  networking.interfaces.wlp0s19f2u6.useDHCP = true;
+  #networking.interfaces.enp2s0.useDHCP = true;
+  # networking.interfaces.wlp0s19f2u6.useDHCP = true;
+  #networking.interfaces.wlp0s18f2u1.useDHCP = true;
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
