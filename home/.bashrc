@@ -97,3 +97,6 @@ export W32P=/home/emil/.local/share/wineprefixes/32/
 function wine32() {
 	WINEPREFIX=$W32P wine $@
 }
+function jap() {
+	LANG="ja_JP.UTF8" $@
+}
