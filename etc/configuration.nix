@@ -126,19 +126,26 @@ rec {
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Remap mouse side buttons to scroll and disable acceleration
-  services.xserver.config = ''
-    Section "InputClass"
-        Identifier "evdev pointer catchall"
-        MatchIsPointer "on"
-        MatchDevicePath "/dev/input/event*"
-        Driver "evdev"
-        Option "ButtonMapping" "1 2 3 4 5 6 7 5 4 10 11 12"
-      	Option "AccelProfile" "flat"
-    		Option "AccelerationProfile" "-1"
-        Option "AccelerationScheme" "none"
-      	Option "AccelSpeed" "-1"
-    EndSection
-  '';
+  services.xserver.libinput.mouse = {
+    accelProfile = "flat";
+    accelSpeed = "-1";
+    buttonMapping = "1 2 3 4 5 6 7 5 4 10 11 12";
+    additionalOptions = "Option \"AccelerationScheme\" \"none\"\n";
+  };
+
+  # services.xserver.config = ''
+  #   Section "InputClass"
+  #       Identifier "evdev pointer catchall"
+  #       MatchIsPointer "on"
+  #       MatchDevicePath "/dev/input/event*"
+  #       Driver "evdev"
+  #       Option "ButtonMapping" "1 2 3 4 5 6 7 5 4 10 11 12"
+  #     	Option "AccelProfile" "flat"
+  #   		Option "AccelerationProfile" "-1"
+  #       Option "AccelerationScheme" "none"
+  #     	Option "AccelSpeed" "-1"
+  #   EndSection
+  # '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
