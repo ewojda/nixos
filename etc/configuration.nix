@@ -26,6 +26,30 @@ rec {
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   boot.supportedFilesystems = [ "ntfs" ];
+  # boot.kernelParams = [
+  #   "zswap.enabled=1"
+  #   "zswap.compressor=zstd"
+  #   "zswap.max_pool_percent=100"
+  #   "zswap.zpool=z3fold"
+  # ];
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 90;
+  };
+  # boot.initrd.availableKernelModules = [
+  #   "zstd"
+  #   "z3fold"
+  # ];
+  # boot.kernelModules = [
+  #   "zstd"
+  #   "z3fold"
+  # ];
+  # boot.initrd.kernelModules = [
+  #   "zstd"
+  #   "z3fold"
+  # ];
+
   networking.hostName = "enix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
