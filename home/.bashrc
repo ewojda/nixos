@@ -24,7 +24,7 @@ function init-rebuild-with() {
 function rebuild-with() {
 	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
 	NP_PIN="-I nixpkgs=/home/emil/nixpkgs-myrev/"
-	sudo nixos-rebuild switch $NP_PIN -p $1 $2
+	sudo nixos-rebuild boot $NP_PIN -p $@
 }
 
 function fhsenv() {
