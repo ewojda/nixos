@@ -28,6 +28,16 @@ function rebuild-with() {
 	sudo nixos-rebuild boot $NP_PIN -p $@
 }
 
+function fhsenv-small() {
+    nix-shell --expr "with import <nixpkgs> {};
+	(buildFHSUserEnv {
+		name = \"fhs-env\";
+		targetPkgs = pkgs: [
+			$@
+		];
+	}).env"
+}
+
 function fhsenv() {
 	NIXPKGS_ALLOW_UNFREE=1 nix-shell --expr "with import <nixpkgs> {};
 	(buildFHSUserEnv {
