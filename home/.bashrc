@@ -100,3 +100,7 @@ function wine32() {
 function jap() {
 	LANG="ja_JP.UTF8" $@
 }
+function type-clipboard-after() {
+	sleep $1
+	xclip -selection clipboard -out | tr \\n \\r | xdotool type --clearmodifiers --delay 25 --file -
+}
