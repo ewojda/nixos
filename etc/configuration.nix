@@ -177,16 +177,18 @@ rec {
   in [
     _7zz
 #    archivemount
-    btfs
-    cdrkit
+    #btfs
+    #cdrkit
     curlFull
-    dino
+    #dino
+    #emacsWithGTK2
     emacs
-    ffmpegWithFFplay
+    #ffmpegWithFFplay
     firefox
-    fuse-7z-ng
+    #fuse-7z-ng
     gcc
     git
+    gimp
     gnome.dconf-editor
     gnome.dconf-editor
     gnome.gnome-disk-utility
@@ -194,36 +196,42 @@ rec {
     gnome.gnome-tweaks
     go_1_17
     gopls
-    hashlink
-    haxe
-    httpdirfs
+    #hashlink
+    #haxe
+    #httpdirfs
     hugo
     imagemagick
     #(import ./tageditor-no-gui.nix { inherit pkgs; })
     inkscape
-    jami-client-qt
-    jami-daemon
+    julia-bin
+    #jami-client-qt
+    #jami-daemon
     #latest.firefox-nightly-bin
     libreoffice
     luajit_2_1
-    mpv
+    lutris
+    #mpv
     nix-index
     nomacs
+    nwjs
     openjdk11
     openssl
     p7zip
     patchelf
     pdftk
+    plowshare
     pkg-config
     qbittorrent
     rclone
-    session-desktop-appimage
+    #session-desktop-appimage
+    steam-run
     sumneko-lua-language-server
     tageditor
-#    ungoogled-chromium
+    #ungoogled-chromium
     unzip
+    unrar
     veracrypt
-    virt-manager
+    #virt-manager
     vlc
     wget
     wine
@@ -231,15 +239,17 @@ rec {
     wine64launcher
     winetricks
     xorg.xmodmap
+    xdotool
+    xclip
     yt-dlp
     zlib
 
-#    minetest
-    polymc
-#    airshipperFixedIcon
-#    (import ./xenia.nix { inherit pkgs; })
+    #minetest
+    #polymc
+    #airshipperFixedIcon
+    #(import ./xenia.nix { inherit pkgs; })
 
-    netsurf-browser
+    #netsurf-browser
   ] ++ (if current-de != "gnome" && current-de != "pantheon" then [
     gnome.file-roller
   ] else []) ++ (if current-de == "pantheon" then [
