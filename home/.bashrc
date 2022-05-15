@@ -24,6 +24,7 @@ function init-rebuild-with() {
 function rebuild-with() {
 	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
 	NP_PIN="-I nixpkgs=/home/emil/nixpkgs-myrev/"
+	NP_PIN=""
 	sudo nixos-rebuild boot $NP_PIN -p $@
 }
 
