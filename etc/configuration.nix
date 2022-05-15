@@ -26,8 +26,7 @@ rec {
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   boot.supportedFilesystems = [ "ntfs" ];
-
-  networking.hostName = "emil-nixos"; # Define your hostname.
+  networking.hostName = "enix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
