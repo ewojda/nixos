@@ -241,6 +241,7 @@ rec {
     steam-run
     sumneko-lua-language-server
     tageditor
+    tor-browser-bundle-bin
     #ungoogled-chromium
     unzip
     unrar
@@ -287,8 +288,8 @@ rec {
     wantedBy = [ "network.target" ];
   };
 
-  # services.tor.enable = true;
-  # services.tor.client.enable = true;
+  services.tor.enable = true;
+  services.tor.client.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
