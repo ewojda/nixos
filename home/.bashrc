@@ -122,3 +122,7 @@ function type-clipboard-after() {
 	sleep $1
 	xclip -selection clipboard -out | tr \\n \\r | xdotool type --clearmodifiers --delay 25 --file -
 }
+
+function force-mount-ntfs () {
+	sudo mount -t ntfs-3g -o remove_hiberfile $@
+}
