@@ -168,6 +168,10 @@ rec {
   # Packages
   programs.steam.enable = true;
 
+	environment.variables = {
+		MOZ_USE_XINPUT2 = "1";
+	};
+
   environment.systemPackages = with pkgs; let
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
