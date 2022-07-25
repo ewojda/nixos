@@ -28,6 +28,13 @@ function rebuild-with() {
 	sudo nixos-rebuild boot $NP_PIN -p $@
 }
 
+function rebuild-with-switch() {
+	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
+	NP_PIN="-I nixpkgs=/home/emil/nixpkgs-myrev/"
+	NP_PIN=""
+	sudo nixos-rebuild switch $NP_PIN -p $@
+}
+
 function fhsenv-small() {
     nix-shell --expr "with import <nixpkgs> {};
 	(buildFHSUserEnv {
