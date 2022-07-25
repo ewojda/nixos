@@ -26,6 +26,7 @@ rec {
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelParams = [
   #   "zswap.enabled=1"
   #   "zswap.compressor=zstd"
