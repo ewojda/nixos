@@ -181,7 +181,9 @@ rec {
     hashlink = import ./hashlink.nix { inherit pkgs; };
     airshipperFixedIcon = import ./airshipper.nix { inherit pkgs; };
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
+    lbry-desktop-custom = import ./lbry-desktop-custom.nix { inherit lib fetchurl appimageTools; };
   in [
+  	lbry-desktop-custom
     _7zz
 #    archivemount
     #btfs
