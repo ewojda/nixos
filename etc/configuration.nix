@@ -188,10 +188,13 @@ rec {
 #    archivemount
     #btfs
     #cdrkit
+    amberol
     curlFull
     #dino
     #emacsWithGTK2
     emacs
+    exaile
+    evolution
     #ffmpegWithFFplay
     firefox
     #fuse-7z-ng
@@ -207,6 +210,8 @@ rec {
     gopls
     #hashlink
     #haxe
+    haxe
+    hashlink
     #httpdirfs
     hugo
     imagemagick
@@ -253,6 +258,7 @@ rec {
     yt-dlp
     zlib
 
+    gnome-podcasts
     #minetest
     #polymc
     #airshipperFixedIcon
