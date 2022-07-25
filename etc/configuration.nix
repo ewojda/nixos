@@ -150,6 +150,8 @@ rec {
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   # Enable sound.
   sound.enable = true;
@@ -162,7 +164,7 @@ rec {
   # Users
   users.users.emil = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "sound" ];
+    extraGroups = [ "wheel" "networkmanager" "sound" "scanner" "lp"  ];
   };
 
   # Packages
