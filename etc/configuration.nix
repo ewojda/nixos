@@ -203,12 +203,14 @@ rec {
     emacsCustom
     exaile
     evolution
+    ffmpeg
     #ffmpegWithFFplay
     firefox
     #fuse-7z-ng
     gcc
     git
     gimp
+    gnuplot
     gnome.dconf-editor
     gnome.dconf-editor
     gnome.gnome-disk-utility
@@ -225,7 +227,7 @@ rec {
     imagemagick
     #(import ./tageditor-no-gui.nix { inherit pkgs; })
     inkscape
-    julia-bin
+    #julia-bin
     #jami-client-qt
     #jami-daemon
     #latest.firefox-nightly-bin
@@ -250,6 +252,8 @@ rec {
     sumneko-lua-language-server
     tageditor
     tor-browser-bundle-bin
+    texmacs
+    tetex
     #ungoogled-chromium
     unzip
     unrar
