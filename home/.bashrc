@@ -1,4 +1,4 @@
-export EDITOR="emacs"
+export EDITOR="emacs -nw"
 export PATH="$PATH:/home/emil/go/bin"
 export NIXPKGS_ALLOW_UNFREE=1
 export WEBKIT_FORCE_SANDBOX=0
