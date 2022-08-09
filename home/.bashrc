@@ -109,7 +109,9 @@ function offline2() {
 }
 
 function eman() {
-	emacs --eval "(progn (man \"$1\") (delete-window))"
+	emacs -nw --eval "(progn (man \"$1\") (delete-window))"
+}
+
 function eterm() {
     emacs -nw --eval '(term "/run/current-system/sw/bin/bash")'
 }
