@@ -128,3 +128,10 @@ function type-clipboard-after() {
 function force-mount-ntfs () {
 	sudo mount -t ntfs-3g -o remove_hiberfile $@
 }
+
+function nix-quick-search () {
+	WD="$(pwd)"
+	cd /nix/var/nix/profiles/per-user/root/channels/nixos
+	nix search . $@
+	cd "$WD"
+}
