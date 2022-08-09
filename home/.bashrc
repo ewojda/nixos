@@ -135,3 +135,7 @@ function nix-quick-search () {
 	nix search . $@
 	cd "$WD"
 }
+
+function find-nixpkgs () {
+	find /nix/var/nix/profiles/per-user/root/channels/nixos/ $@
+}
