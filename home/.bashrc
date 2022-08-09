@@ -110,6 +110,8 @@ function offline2() {
 
 function eman() {
 	emacs --eval "(progn (man \"$1\") (delete-window))"
+function eterm() {
+    emacs -nw --eval '(term "/run/current-system/sw/bin/bash")'
 }
 
 export W32P=/home/emil/.local/share/wineprefixes/32/
