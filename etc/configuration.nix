@@ -79,6 +79,12 @@ rec {
   #   keyMap = "us";
   # };
 
+  environment.etc."nixos/configuration_backup.nix" = {
+    enable = true;
+    source = /etc/nixos/configuration.nix;
+    mode = "0444";
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
