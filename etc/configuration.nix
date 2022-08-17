@@ -255,6 +255,7 @@ rec {
     pkg-config
     qbittorrent
     rclone
+    R
     #session-desktop-appimage
     steam-run
     sumneko-lua-language-server
