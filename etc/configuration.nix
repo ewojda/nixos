@@ -312,10 +312,10 @@ rec {
   services.tor.enable = true;
   services.tor.client.enable = true;
 
-  services.emacs = {
-  	enable = true;
-  	package = emacsCustom;
-  };
+  # services.emacs = {
+  # 	enable = true;
+  # 	package = emacsCustom;
+  # };
 
   nixpkgs.config.allowUnfree = true;
 
