@@ -184,6 +184,7 @@ rec {
   # Packages
   programs.steam.enable = true;
 
+	# Fixes touchpad scrolling in firefox
 	environment.variables = {
 		MOZ_USE_XINPUT2 = "1";
 	};
