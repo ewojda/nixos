@@ -12,7 +12,7 @@ in
 assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "icewm" "pantheon" ]);
 { config, pkgs, ... }:
 let
-  emacsCustom = pkgs.emacs.override { 
+  emacsCustom = pkgs.emacs.override {
     withXwidgets = true;
     withWebP = true;
     withXinput2 = true;
@@ -155,10 +155,10 @@ rec {
   #       MatchDevicePath "/dev/input/event*"
   #       Driver "evdev"
   #       Option "ButtonMapping" "1 2 3 4 5 6 7 5 4 10 11 12"
-  #     	Option "AccelProfile" "flat"
-  #   		Option "AccelerationProfile" "-1"
+  #       Option "AccelProfile" "flat"
+  #       Option "AccelerationProfile" "-1"
   #       Option "AccelerationScheme" "none"
-  #     	Option "AccelSpeed" "-1"
+  #       Option "AccelSpeed" "-1"
   #   EndSection
   # '';
 
@@ -177,7 +177,7 @@ rec {
 
   # Users
   users.users.emil = {
-  	description = "Emil";
+    description = "Emil";
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "sound" "scanner" "lp"  ];
   };
@@ -185,10 +185,10 @@ rec {
   # Packages
   programs.steam.enable = true;
 
-	# Fixes touchpad scrolling in firefox
-	environment.variables = {
-		MOZ_USE_XINPUT2 = "1";
-	};
+  # Fixes touchpad scrolling in firefox
+  environment.variables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
 
   environment.systemPackages = with pkgs; let
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
@@ -199,9 +199,8 @@ rec {
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
     lbry-desktop-custom = import ./lbry-desktop-custom.nix { inherit lib fetchurl appimageTools; };
   in [
-  	lbry-desktop-custom
+    lbry-desktop-custom
     _7zz
-#    archivemount
     #btfs
     #cdrkit
     amberol
@@ -227,14 +226,11 @@ rec {
     gnome.gnome-tweaks
     go_1_17
     gopls
-    #hashlink
-    #haxe
     haxe
     hashlink
     #httpdirfs
     hugo
     imagemagick
-    #(import ./tageditor-no-gui.nix { inherit pkgs; })
     inkscape
     #julia-bin
     #jami-client-qt
@@ -295,13 +291,13 @@ rec {
     gnome.gnome-maps
     gnome.gnome-weather
   ] else []);
-  
+
   services.tor.enable = true;
   services.tor.client.enable = true;
 
   # services.emacs = {
-  # 	enable = true;
-  # 	package = emacsCustom;
+  #   enable = true;
+  #   package = emacsCustom;
   # };
 
   nixpkgs.config.allowUnfree = true;
@@ -351,4 +347,3 @@ rec {
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 }
-
