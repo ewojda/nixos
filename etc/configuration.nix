@@ -176,6 +176,7 @@ rec {
 
   # Users
   users.users.emil = {
+  	description = "Emil";
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "sound" "scanner" "lp"  ];
   };
