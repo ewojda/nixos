@@ -152,4 +152,8 @@ function ew-cd-and-run () {
 	"$@"
 	cd "$WD"
 }
+function lsblk2() {
+	lsblk -o PATH,SIZE,FSTYPE,LABEL
+}
+
 }
