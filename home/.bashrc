@@ -103,7 +103,7 @@ function nix-shell-stable() {
 }
 
 function offline() {
-	sudo unshare -n sudo -u emil $@
+	firejail --noprofile --net=none "$@"
 }
 
 # https://unix.stackexchange.com/questions/96358/command-to-run-a-child-process-offline-no-external-network-on-linux
