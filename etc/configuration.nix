@@ -223,6 +223,7 @@ rec {
     ffmpeg
     #ffmpegWithFFplay
     firefox
+    firejail
     freecad
     #fuse-7z-ng
     gcc
@@ -315,6 +316,8 @@ rec {
     gnome.gnome-weather
   ] else []);
 
+	programs.firejail.enable = true;
+	security.apparmor.enable = true;
   services.tor.enable = true;
   services.tor.client.enable = true;
 
