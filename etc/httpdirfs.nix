@@ -9,5 +9,5 @@ pkgs.stdenv.mkDerivation {
     sha256 = "1b5ka6lh5622in7h6adswnax2z2rz0c1lbfm1gh4icc6x0ihb0ap";
   };
   installPhase = '' DESTDIR=$out prefix=/ make install '';
-  buildInputs = with pkgs; [ libgumbo fuse openssl libuuid curl pkg-config expat ];
+  buildInputs = with pkgs; [ gumbo fuse openssl libuuid curl pkg-config expat ];
 }
