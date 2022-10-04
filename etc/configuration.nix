@@ -198,25 +198,37 @@ rec {
     airshipperFixedIcon = import ./airshipper.nix { inherit pkgs; };
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
     lbry-desktop-custom = import ./lbry-desktop-custom.nix { inherit lib fetchurl appimageTools; };
+    emacsnw = import ./emacsnw.nix { inherit pkgs; };
   in [
-    lbry-desktop-custom
+    wine64launcher
+    #httpdirfs
+    #emacsWithGTK2
+    #airshipperFixedIcon
+    #ffmpegWithFFplay
+  	lbry-desktop-custom
+    hashlink
+    emacsnw
+
     _7zz
     #btfs
     #cdrkit
     amberol
     curlFull
     #dino
-    #emacsWithGTK2
+    dbeaver
+    desktop-file-utils
     #emacs
     emacsCustom
-    exaile
     evolution
     ffmpeg
     #ffmpegWithFFplay
     firefox
+    freecad
     #fuse-7z-ng
     gcc
-    git
+    ghostscript
+    gitFull
+    graphviz
     gimp
     gnuplot
     gnome.dconf-editor
@@ -226,9 +238,8 @@ rec {
     gnome.gnome-tweaks
     go_1_17
     gopls
+    godot
     haxe
-    hashlink
-    #httpdirfs
     hugo
     imagemagick
     inkscape
@@ -243,13 +254,16 @@ rec {
     nix-index
     nomacs
     nwjs
+    nodejs
     openjdk11
     openssl
     p7zip
     patchelf
     pdftk
     plowshare
+    php81
     pkg-config
+    (python3.withPackages (p: with p; [ pip ]))
     qbittorrent
     rclone
     R
@@ -257,26 +271,35 @@ rec {
     steam-run
     sumneko-lua-language-server
     tageditor
-    tor-browser-bundle-bin
+    #tor-browser-bundle-bin
     texmacs
     tetex
     #ungoogled-chromium
     unzip
     unrar
     veracrypt
-    #virt-manager
+    virt-manager
     vlc
     wget
     wine
     wine64
-    wine64launcher
     winetricks
     xorg.xmodmap
+    xorg.xhost
     xdotool
     xclip
     yt-dlp
     zlib
+    i2pd
+		emem
+		gallery-dl
 
+		jre8
+		openjfx11
+		streamlink
+		clementine
+
+		mimic
     gnome-podcasts
     #minetest
     #polymc
