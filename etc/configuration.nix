@@ -12,8 +12,8 @@ in
 assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "icewm" "pantheon" ]);
 { config, pkgs, ... }:
 let
-  emacsCustom = pkgs.emacs.override {
-    withXwidgets = true;
+  emacsCustom = pkgs.emacs.override { 
+    #withXwidgets = true;
     withWebP = true;
     withXinput2 = true;
   };
