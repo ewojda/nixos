@@ -321,6 +321,12 @@ rec {
   services.tor.enable = true;
   services.tor.client.enable = true;
 
+	services.i2pd = {
+		enable = true;
+		proto.http.enable = true;
+		proto.httpProxy.enable = true;
+	};
+
   # services.emacs = {
   #   enable = true;
   #   package = emacsCustom;
