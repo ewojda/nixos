@@ -145,4 +145,11 @@ function nix-quick-search () {
 
 function find-nixpkgs () {
 	find /nix/var/nix/profiles/per-user/root/channels/nixos/ $@
+function ew-cd-and-run () {
+	WD="$(pwd)"
+	cd "$1"
+	shift 1
+	"$@"
+	cd "$WD"
+}
 }
