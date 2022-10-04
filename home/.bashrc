@@ -172,4 +172,7 @@ function yt-dlp-music() {
 		# --parse-metadata "album:%(playlist_title)s"\
 		# --parse-metadata "artist:%(uploader)s"\
 }
+
+function winejail() {
+	WINEDEBUG=-all firejail --net=none --profile=wine wine64 "$@"
 }
