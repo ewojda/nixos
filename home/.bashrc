@@ -1,9 +1,9 @@
-export EDITOR="emacs -nw"
+export EDITOR="emacsnw"
 export PATH="$PATH:/home/emil/go/bin"
 export NIXPKGS_ALLOW_UNFREE=1
 export WEBKIT_FORCE_SANDBOX=0
-alias e=emacsclient
-alias ee='emacsclient -nw'
+alias e=emacs
+alias ee='emacsnw'
 
 
 alias 7z=7zz
