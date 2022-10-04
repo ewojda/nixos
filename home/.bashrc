@@ -122,29 +122,33 @@ function eterm() {
 export W32P=/home/emil/.local/share/wineprefixes/32/
 
 function wine32() {
-	WINEPREFIX=$W32P wine $@
+	WINEPREFIX=$W32P wine "$@"
 }
+
 function jap() {
-	LANG="ja_JP.UTF8" $@
+	LANG="ja_JP.UTF8" "$@"
 }
+
 function type-clipboard-after() {
 	sleep $1
 	xclip -selection clipboard -out | tr \\n \\r | xdotool type --clearmodifiers --delay 25 --file -
 }
 
 function force-mount-ntfs () {
-	sudo mount -t ntfs-3g -o remove_hiberfile $@
+	sudo mount -t ntfs-3g -o remove_hiberfile "$@"
 }
 
 function nix-quick-search () {
 	WD="$(pwd)"
 	cd /nix/var/nix/profiles/per-user/root/channels/nixos
-	nix search . $@
+	nix search . "$@"
 	cd "$WD"
 }
 
 function find-nixpkgs () {
-	find /nix/var/nix/profiles/per-user/root/channels/nixos/ $@
+	find /nix/var/nix/profiles/per-user/root/channels/nixos/ "$@"
+}
+
 function ew-cd-and-run () {
 	WD="$(pwd)"
 	cd "$1"
