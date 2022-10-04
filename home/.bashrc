@@ -156,4 +156,20 @@ function lsblk2() {
 	lsblk -o PATH,SIZE,FSTYPE,LABEL
 }
 
+function yt-dlp-music() {
+	yt-dlp\
+		--ignore-errors\
+		--output '%(playlist_title)s/%(title)s.%(ext)s'\
+		--no-continue\
+		--extract-audio\
+		--audio-format mp3\
+		--audio-quality 0\
+		--embed-thumbnail\
+		--embed-metadata\
+		"$@"
+
+		# --parse-metadata "title:%(title)s"\
+		# --parse-metadata "album:%(playlist_title)s"\
+		# --parse-metadata "artist:%(uploader)s"\
+}
 }
