@@ -96,7 +96,7 @@ rec {
   services.xserver.displayManager.lightdm.enable = use-lightdm;
   #  GDM
   services.xserver.displayManager.gdm.enable = (current-de != "startx" && !use-lightdm);
-  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.displayManager.gdm.nvidiaWayland = false;
   #  startx
   services.xserver.displayManager.startx.enable = (current-de == "startx");
