@@ -8,8 +8,9 @@
 let
   current-de = import ./de.nix;
   use-lightdm = (current-de == "fluxbox" || current-de == "icewm" || current-de == "pantheon" || current-de == "xfce");
+  use-sddm = (current-de == "kde");
 in
-assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "icewm" "pantheon" ]);
+assert (builtins.elem current-de [ "gnome" "xfce" "startx" "fluxbox" "icewm" "pantheon" "kde" ]);
 { config, pkgs, ... }:
 let
   emacsCustom = pkgs.emacs.override { 
@@ -95,7 +96,7 @@ rec {
   #  LightDM
   services.xserver.displayManager.lightdm.enable = use-lightdm;
   #  GDM
-  services.xserver.displayManager.gdm.enable = (current-de != "startx" && !use-lightdm);
+  services.xserver.displayManager.gdm.enable = (current-de != "startx" && !use-lightdm && !use-sddm);
   services.xserver.displayManager.gdm.wayland = true;
   # services.xserver.displayManager.gdm.nvidiaWayland = false;
   #  startx
@@ -135,6 +136,9 @@ rec {
     epiphany
   ];
   programs.pantheon-tweaks.enable = (current-de == "pantheon");
+	#  KDE
+	services.xserver.displayManager.sddm.enable = use-sddm;
+	services.xserver.desktopManager.plasma5.enable = (current-de == "kde");
 
   # Configure keymap in X11
   services.xserver.layout = "pl";
