@@ -160,7 +160,8 @@ function ew-cd-and-run () {
 	cd "$WD"
 }
 function lsblk2() {
-	lsblk -o PATH,SIZE,FSTYPE,LABEL
+	lsblk -o LABEL,PATH,SIZE,FSTYPE,FSAVAIL,MOUNTPOINTS
+	#lsblk -o PATH,FSAVAIL,SIZE,FSTYPE,LABEL
 }
 
 function yt-dlp-music() {
