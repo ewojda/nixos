@@ -183,3 +183,24 @@ function yt-dlp-music() {
 function winejail() {
 	WINEDEBUG=-all firejail --net=none --profile=wine wine64 "$@"
 }
+function rss() {
+	picofeed\
+	 --web\
+	 'https://videos.icum.to/feeds/videos.xml?sort=-publishedAt'\
+	 `#Exanima` 'https://store.steampowered.com/feeds/news/app/362490/?cc=PL&l=english&snr=1_2108_9__2107'\
+	 `#Bannerlord` 'https://store.steampowered.com/feeds/news/app/261550/?cc=PL&l=english&snr=1_2108_9__2107'\
+	 'https://web3isgoinggreat.com/feed.xml'\
+	 'https://sizeof.cat/index.xml'\
+	 'https://boards.4channel.org/news/index.rss'\
+	 'https://www.theregister.com/headlines.atom'\
+	 'https://www.technologyreview.com/feed'\
+	 'https://www.lesswrong.com/feed.xml?view=curated-rss'\
+	 'https://www.thefp.com/feed'\
+	 'https://dailysceptic.org/feed/'\
+	 'https://www.spiked-online.com/feed/'\
+	 'https://hitchensblog.mailonsunday.co.uk/rss.xml'\
+	 'https://snork.ca/feed.xml'\
+	 'https://librarian.pussthecat.org/@millennialwoes:4/rss'\
+	 'https://anchor.fm/s/11bc7314/podcast/rss'\
+	 'https://unlimitedhangout.com/feed/'
+}
