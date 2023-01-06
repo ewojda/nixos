@@ -183,6 +183,20 @@ function yt-dlp-music() {
 function winejail() {
 	WINEDEBUG=-all firejail --net=none --profile=wine wine64 "$@"
 }
+function rcalc() {
+	OUT=""
+	OUT+="#+begin_src R :exports both :results file graphics :file /tmp/r-output.png"
+	OUT+="\n\n"
+	OUT+="#+end_src"
+	OUT+="\n\n"
+	OUT+="#+begin_src R"
+	OUT+="\n\n"
+	OUT+="#+end_src"
+	emacs -nw\
+	 --insert <(echo -e "$OUT")\
+	 --eval '(org-mode)'
+}
+
 function rss() {
 	picofeed\
 	 --web\
