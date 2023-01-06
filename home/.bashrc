@@ -159,6 +159,15 @@ function ew-cd-and-run () {
 	"$@"
 	cd "$WD"
 }
+function wait-for-stream() {
+	LINK="https://twitch.tv/$1"
+	while ! streamlink "$LINK" 480p
+	do
+		echo Waiting for "$LINK --- $(date +%T)"
+		sleep 100
+	done
+}
+
 function lsblk2() {
 	lsblk -o LABEL,PATH,SIZE,FSTYPE,FSAVAIL,MOUNTPOINTS
 	#lsblk -o PATH,FSAVAIL,SIZE,FSTYPE,LABEL
