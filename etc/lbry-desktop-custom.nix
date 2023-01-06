@@ -2,7 +2,7 @@
 
 let
   pname = "lbry-desktop-custom";
-  version = "0.53.4";
+  version = "0.53.7";
 in appimageTools.wrapAppImage rec {
   name = "${pname}-${version}";
 
@@ -12,7 +12,7 @@ in appimageTools.wrapAppImage rec {
     src = fetchurl {
       url = "https://github.com/lbryio/lbry-desktop/releases/download/v${version}/LBRY_${version}.AppImage";
       # Gotten from latest-linux.yml
-      sha512 = "jgDBdqn3ynTjlQKAdXYApnU2b3ByHFBGnu4qNUeeQ5V3AM9Ba3OWwKiyYVcvGvG/ybkp1FgJsaWlh5RZsh7TCg==";
+      sha512 = "DxKPZKIC9xeIiihJn3YHrqx0QGeKJtBkErN2tLw7apdsdoECyPl7ogt3t54wlCVdasLG4Zv+G9UMdq9len2T6g==";
     };
   };
 
@@ -25,6 +25,7 @@ in appimageTools.wrapAppImage rec {
   extraInstallCommands = ''
     # Firstly, rename the executable to lbry for convinence
     mv $out/bin/${name} $out/bin/lbry
+
     # Now, install assets such as the desktop file and icons
     install -m 444 -D ${src}/lbry.desktop -t $out/share/applications
     substituteInPlace $out/share/applications/lbry.desktop \
