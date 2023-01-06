@@ -183,7 +183,14 @@ rec {
   users.users.emil = {
   	description = "Emil";
     isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "sound" "scanner" "lp"  ];
+  };
+
+  users.users.temp = {
+  	description = "Temp";
     isNormalUser = true;
+    home = "/tmp/temphome";
+    createHome = true;
     extraGroups = [ "wheel" "networkmanager" "sound" "scanner" "lp"  ];
   };
 
