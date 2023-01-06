@@ -183,6 +183,10 @@ function yt-dlp-music() {
 function winejail() {
 	WINEDEBUG=-all firejail --net=none --profile=wine wine64 "$@"
 }
+function lsnix() {
+	nix profile list | awk '{ print $1 " " $2 }'
+}
+
 function rcalc() {
 	OUT=""
 	OUT+="#+begin_src R :exports both :results file graphics :file /tmp/r-output.png"
