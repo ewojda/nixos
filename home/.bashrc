@@ -183,6 +183,10 @@ function yt-dlp-music() {
 function winejail() {
 	WINEDEBUG=-all firejail --net=none --profile=wine wine64 "$@"
 }
+function to-appimage() {
+	nix bundle --bundler github:ralismark/nix-appimage "$@"
+}
+
 function lsnix() {
 	nix profile list | awk '{ print $1 " " $2 }'
 }
