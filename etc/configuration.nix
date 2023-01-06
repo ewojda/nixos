@@ -147,7 +147,7 @@ rec {
   # Remap mouse side buttons to scroll and disable acceleration
   services.xserver.libinput.mouse = {
     accelProfile = "flat";
-    accelSpeed = "-1";
+    accelSpeed = "4";
     buttonMapping = "1 2 3 4 5 6 7 5 4 10 11 12";
     additionalOptions = "Option \"AccelerationScheme\" \"none\"\n";
   };
