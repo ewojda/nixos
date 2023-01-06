@@ -5,6 +5,7 @@ export WEBKIT_FORCE_SANDBOX=0
 alias e=emacs
 alias ee='emacsnw'
 
+# export WINE=wine64
 
 alias 7z=7zz
 
@@ -26,18 +27,20 @@ function init-rebuild-with() {
 	set +o xtrace
 }
 
+export INPKGS="-I nixpkgs=/home/emil/nixpkgs-myrev/"
+
 function rebuild-with() {
 	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
 	NP_PIN="-I nixpkgs=/home/emil/nixpkgs-myrev/"
 	NP_PIN=""
-	sudo nixos-rebuild boot $NP_PIN -p $@
+	sudo nixos-rebuild boot $NP_PIN -p "$@"
 }
 
 function rebuild-with-switch() {
 	echo "\"$1\"" | sudo dd of=/etc/nixos/de.nix
 	NP_PIN="-I nixpkgs=/home/emil/nixpkgs-myrev/"
 	NP_PIN=""
-	sudo nixos-rebuild switch $NP_PIN -p $@
+	sudo nixos-rebuild switch $NP_PIN -p "$@"
 }
 
 function fhsenv-small() {
