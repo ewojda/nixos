@@ -183,6 +183,11 @@ function yt-dlp-music() {
 function winejail() {
 	WINEDEBUG=-all firejail --net=none --profile=wine wine64 "$@"
 }
+
+function nix-store-path-of() {
+	nix eval -f '<nixpkgs>' --raw "$@"
+}
+
 function my-nixpkgs() {
 	echo 'path:/nix/var/nix/profiles/per-user/root/channels/nixos/'
 }
