@@ -172,6 +172,11 @@ function play-steam-offline() {
 	play-steam --net=none "$@"
 }
 
+
+function play-tor-ro() {
+	firejail --noprofile --private `readlink $(which tor-browser)`
+}
+
 function wait-for-stream() {
 	LINK="https://twitch.tv/$1"
 	while ! streamlink "$LINK" 480p
