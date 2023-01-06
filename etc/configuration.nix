@@ -211,6 +211,7 @@ rec {
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
     lbry-desktop-custom = import ./lbry-desktop-custom.nix { inherit lib fetchurl appimageTools; };
     emacsnw = import ./emacsnw.nix { inherit pkgs; };
+    picofeed = import ./picofeed.nix { inherit buildGoModule fetchFromGitHub; };
   in [
     wine64launcher
     #httpdirfs
@@ -220,6 +221,7 @@ rec {
   	lbry-desktop-custom
     hashlink
     emacsnw
+		picofeed
 
     _7zz
     #btfs
