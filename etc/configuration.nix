@@ -206,10 +206,12 @@ rec {
     httpdirfs = import ./httpdirfs.nix { inherit pkgs; };
     wine64launcher = import ./wine64launcher.nix { inherit pkgs; };
     emacsWithGTK2 = emacs.override { withGTK2 = true; withGTK3 = false; };
-    hashlink = import ./hashlink.nix { inherit pkgs; };
+    #hashlink = import ./hashlink.nix { inherit pkgs; };
     airshipperFixedIcon = import ./airshipper.nix { inherit pkgs; };
     ffmpegWithFFplay = import ./ffmpeg-with-ffplay.nix { inherit pkgs; };
     lbry-desktop-custom = import ./lbry-desktop-custom.nix { inherit lib fetchurl appimageTools; };
+    epub2txt2 = import ./epub2txt2.nix { inherit pkgs; };
+    barony-launcher = import ./barony.nix { inherit pkgs; };
     emacsnw = import ./emacsnw.nix { inherit pkgs; };
     picofeed = import ./picofeed.nix { inherit buildGoModule fetchFromGitHub; };
   in [
@@ -219,27 +221,31 @@ rec {
     #airshipperFixedIcon
     #ffmpegWithFFplay
   	lbry-desktop-custom
-    hashlink
+    epub2txt2
+    barony-launcher
     emacsnw
 		picofeed
 
+    hashlink
     _7zz
     #btfs
     #cdrkit
-    amberol
+    apacheHttpd
     curlFull
     #dino
     dbeaver
     desktop-file-utils
     #emacs
+    element-web
     emacsCustom
     evolution
+    espeak
     ffmpeg
-    #ffmpegWithFFplay
     firefox
     firejail
     freecad
     #fuse-7z-ng
+    gajim
     gcc
     ghostscript
     gitFull
@@ -251,12 +257,13 @@ rec {
     gnome.gnome-disk-utility
     gnome.gnome-system-monitor
     gnome.gnome-tweaks
-    go_1_17
+    go
     gopls
     godot
     haxe
     hugo
     imagemagick
+    #(import ./tageditor-no-gui.nix { inherit pkgs; })
     inkscape
     #julia-bin
     #jami-client-qt
@@ -308,17 +315,27 @@ rec {
     i2pd
 		emem
 		gallery-dl
+		mono
 
+		mimic
+    gnome-podcasts
 		jre8
 		openjfx11
 		streamlink
 		clementine
+		tome4
+		gnumake
+		btfs
+		#aether
+		cmark
+		protontricks
+		freenet
+		groff
+		ipfs
+		appimage-run
 
-		mimic
-    gnome-podcasts
     #minetest
     #polymc
-    #airshipperFixedIcon
     #(import ./xenia.nix { inherit pkgs; })
 
     #netsurf-browser
