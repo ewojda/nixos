@@ -399,9 +399,13 @@ rec {
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    8080
+    8080 12312 9000
+    3333 4444 50001 5567 #LBRY
   ];
-  networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [
+    3333 4444 50001 5567 #LBRY
+    6889 12598 #Freenet
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
