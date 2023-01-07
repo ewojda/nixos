@@ -217,6 +217,8 @@ rec {
     barony-launcher = import ./barony.nix { inherit pkgs; };
     emacsnw = import ./emacsnw.nix { inherit pkgs; };
     picofeed = import ./picofeed.nix { inherit buildGoModule fetchFromGitHub; };
+    onioncat = import ./onioncat.nix { inherit stdenv fetchFromGitHub automake autoconf; };
+
   in [
     wine64launcher
     #httpdirfs
@@ -228,6 +230,7 @@ rec {
     barony-launcher
     emacsnw
 		picofeed
+		onioncat
 
     hashlink
     _7zz
