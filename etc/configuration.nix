@@ -207,21 +207,25 @@
 		libreoffice
 		luajit_2_1
 		lutris
+		lsof
 		mimic
 		mono
 		nix-index
 		nodejs
 		nomacs
 		nwjs
-		openjdk11
-		openjfx11
+		onionshare-gui
+		openjdk17
+		openjfx17
 		openssl
+		qgis
 		patchelf
 		pdftk
 		pkg-config
 		protontricks
 		(python39Full.withPackages (p: with p; [ pip ]))
 		qbittorrent
+		qdirstat
 		R
 		rclone
 		steam-run
@@ -243,9 +247,11 @@
 		xorg.xhost
 		xorg.xmodmap
 		yt-dlp
+		zenith-nvidia
 		zlib
 	];
 
+	programs.steam.enable = true;
 	programs.firejail.enable = true;
 	security.apparmor.enable = true;
 
