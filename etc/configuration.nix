@@ -284,6 +284,7 @@
 		client.enable = true;
 		# DNS over tor
 		settings.DNSPort = 53;
+		settings.HTTPTunnelPort = 9080;
 	};
 
 	# I2P
@@ -295,6 +296,92 @@
 		# nginx.enable = true;
 		# domain = "127.0.0.1";
 		settings.host_binding = "127.0.0.1";
+	};
+
+	# Searx
+	services.searx = {
+		enable = true;
+		settings = {
+			use_default_settings = {
+				engines.keep_only = [
+					"wikipedia"
+					"bing"
+					"bing images"
+					"bing videos"
+					"brave"
+					"duckduckgo"
+					"duckduckgo images"
+					#"google"
+					#"google images"
+					#"google videos"
+					"qwant"
+					"qwant images"
+					"qwant videos"
+					"mojeek"
+					"wiby"
+				];
+			};
+
+			general = {
+				debug = false;
+				instance_name = "My SearX";
+				enable_stats = false;
+			};
+
+			server = {
+				bind_address = "127.0.0.1";
+				port = 3001;
+				secret_key = "jfg9823hg982he9gh";
+				image_proxy = true;
+			};
+
+			search = {
+				safe_search = 0;
+				autocomplete = "";
+			};
+
+			outgoing = {
+				proxies.http = "http://127.0.0.1:9080";
+				proxies.https = "socks5://127.0.0.1:9050";
+				using_tor_proxy = true;
+				extra_proxy_timeout = 10.0;
+			};
+
+			engines = [
+				{
+					name = "duckduckgo";
+					disabled = false;
+				}
+				{
+					name = "duckduckgo images";
+					disabled = false;
+				}
+				{
+					name = "qwant";
+					disabled = false;
+				}
+				{
+					name = "qwant images";
+					disabled = false;
+				}
+				{
+					name = "qwant videos";
+					disabled = false;
+				}
+				{
+					name = "wiby";
+					disabled = false;
+				}
+				{
+					name = "mojeek";
+					disabled = false;
+				}
+				{
+					name = "mojeek";
+					disabled = false;
+				}
+			];
+		};
 	};
 
 	# Nix flakes
