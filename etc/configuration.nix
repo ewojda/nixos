@@ -384,6 +384,14 @@
 		};
 	};
 
+	# Nitter
+	services.nitter = {
+		enable = true;
+		server.address = "127.0.0.1";
+		server.port = 3002;
+		server.title = "My Nitter";
+	};
+
 	# Nix flakes
 	 nix = {
 		 package = pkgs.nixVersions.stable;
