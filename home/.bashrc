@@ -188,5 +188,5 @@ function rtor() {
 }
 
 function play() {
-	/home/emil/Projects/Go/play/play /home/emil/Downloads/Games/* /mnt/ntfs/Games/
+	/home/emil/Projects/Go/play/play /home/emil/Downloads/Games/* /mnt/ntfs/Games/ ~/.wine/drive_c/Games/
 }
