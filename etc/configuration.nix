@@ -348,38 +348,14 @@
 			};
 
 			engines = [
-				{
-					name = "duckduckgo";
-					disabled = false;
-				}
-				{
-					name = "duckduckgo images";
-					disabled = false;
-				}
-				{
-					name = "qwant";
-					disabled = false;
-				}
-				{
-					name = "qwant images";
-					disabled = false;
-				}
-				{
-					name = "qwant videos";
-					disabled = false;
-				}
-				{
-					name = "wiby";
-					disabled = false;
-				}
-				{
-					name = "mojeek";
-					disabled = false;
-				}
-				{
-					name = "mojeek";
-					disabled = false;
-				}
+				{	name = "duckduckgo"; disabled = false; }
+				{	name = "duckduckgo images"; disabled = false; }
+				{	name = "qwant"; disabled = false; }
+				{	name = "qwant images"; disabled = false; }
+				{	name = "qwant videos"; disabled = false; }
+				{	name = "wiby"; disabled = false; }
+				{	name = "mojeek"; disabled = false; }
+				{	name = "mojeek"; disabled = false; }
 			];
 		};
 	};
