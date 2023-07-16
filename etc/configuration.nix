@@ -293,9 +293,16 @@
 	# Invidious
 	services.invidious = {
 		enable = true;
-		# nginx.enable = true;
-		# domain = "127.0.0.1";
-		settings.host_binding = "127.0.0.1";
+		settings = {
+		  host_binding = "127.0.0.1";
+			captcha_enabled = false;
+			admins = [ "emil" ];
+			default_user_preferences = {
+			  default_home = "Subscriptions";
+			  max_results = 100;
+			  save_player_pos = true;
+			};
+		};
 	};
 
 	# Searx
